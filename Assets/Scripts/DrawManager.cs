@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DrawManager : MonoBehaviour
 {
@@ -23,13 +24,18 @@ public class DrawManager : MonoBehaviour
 
         worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && IsMouseOverUI())
             currentLine = Instantiate(linePrefab, worldPosition, Quaternion.identity);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && IsMouseOverUI())
             currentLine.SetPosition(worldPosition);
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && currentLine != null)
             currentLine.SetLifeTime();
+    }
+
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
