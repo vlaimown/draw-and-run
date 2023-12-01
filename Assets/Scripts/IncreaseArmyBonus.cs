@@ -15,9 +15,11 @@ public class IncreaseArmyBonus : MonoBehaviour
             my_renderer.material = my_material;
 
             Player player = FindAnyObjectByType<Player>().GetComponent<Player>();
-            player.ArmyIncrease(hero);
             gameObject.AddComponent<Hero>();
+            gameObject.tag = "Hero";
             gameObject.transform.SetParent(player.transform);
+            hero = GetComponent<Hero>();
+            player.ArmyIncrease(hero);
             IncreaseArmyBonus increaseArmyBonus = GetComponent<IncreaseArmyBonus>();
             Destroy(increaseArmyBonus);
         }
