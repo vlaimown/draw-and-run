@@ -565,8 +565,9 @@ GameObject:
   - component: {fileID: 1107791429850142387}
   - component: {fileID: 3955916252843517023}
   - component: {fileID: 1229613126512848640}
+  - component: {fileID: 3823173489546556234}
   m_Layer: 5
-  m_Name: Defeat
+  m_Name: EndGameWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,6 +632,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3823173489546556234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907502998982568719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df77840e7762fa249ae2dc9672291560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 6966619182849763086}
 --- !u!1 &8084235409900276583
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +657,7 @@ GameObject:
   - component: {fileID: 1240863910951467220}
   - component: {fileID: 2514675977538236067}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: End Game Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

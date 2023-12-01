@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EndGameWindow : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private TMP_Text scoreText;
+    private Score score;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        score = FindAnyObjectByType<Score>();
+        scoreText.text = $"Score: {score.Value}";
     }
 }
