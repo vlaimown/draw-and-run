@@ -1,9 +1,10 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Line : MonoBehaviour
 {
     [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private float maxLifeTime = 1f;
+    [SerializeField] private float maxLifeTime = 2f;
     private float currentLifeTime;
     private bool drawn = false;
 
@@ -40,4 +41,8 @@ public class Line : MonoBehaviour
         currentLifeTime = maxLifeTime;
         drawn = true;
     }
+
+    public int PositionCount() => lineRenderer.positionCount;
+
+    public Vector3 LinePointPos(int index) => lineRenderer.GetPosition(index);
 }

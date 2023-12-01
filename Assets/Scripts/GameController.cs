@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
         if (!defeatWindow.activeSelf)
             player.Move(finish);
 
-        if (player.HeroAlivesCount() == 0)
+        if (player.HeroListCount() == 0)
             defeatWindow.SetActive(true);
 
         if (Vector3.Distance(player.transform.position, finish.position) <= 0.05f)
