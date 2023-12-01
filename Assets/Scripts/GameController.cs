@@ -8,10 +8,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject victoryWindow;
     [SerializeField] private GameObject defeatWindow;
-    void Start()
-    {
-        
-    }
+
+    [SerializeField] private Score score;
 
     void Update()
     {
