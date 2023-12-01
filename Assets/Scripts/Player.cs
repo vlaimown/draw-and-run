@@ -27,4 +27,9 @@ public class Player : MonoBehaviour
     {
         heroList.Remove(hero);
     }
+
+    public void ArmyIncrease(Hero hero)
+    {
+        heroList.Add(hero);
+    }
 }
