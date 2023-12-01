@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private Transform finish;
+
+    [SerializeField] private GameObject victoryWindow;
+    [SerializeField] private GameObject defeatWindow;
     void Start()
     {
         
@@ -13,6 +15,18 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        player.Move(finish);
+        if (!defeatWindow.activeSelf)
+            player.Move(finish);
+
+        if (player.HeroAlivesCount() == 0)
+            defeatWindow.SetActive(true);
+
+        if (Vector3.Distance(player.transform.position, finish.position) <= 0.01f)
+            victoryWindow.SetActive(true);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
