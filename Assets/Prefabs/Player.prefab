@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  heroList: []
 --- !u!1001 &598330322444037289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7045336298226455250, guid: 03789d3ed8897754186df8e45bf8bdce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045336298226455250, guid: 03789d3ed8897754186df8e45bf8bdce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -140,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7045336298226455250, guid: 03789d3ed8897754186df8e45bf8bdce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045336298226455250, guid: 03789d3ed8897754186df8e45bf8bdce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -206,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7045336298226455250, guid: 03789d3ed8897754186df8e45bf8bdce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045336298226455250, guid: 03789d3ed8897754186df8e45bf8bdce, type: 3}
       propertyPath: m_LocalRotation.w
