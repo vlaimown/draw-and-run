@@ -280,6 +280,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawPanel: {fileID: 1489895510}
   linePrefab: {fileID: 8148607680830177420, guid: 565ae2bca7e77bb4fa917f0260d2e3b2, type: 3}
+  drawPanelMinX: -0.24
+  drawPanelMinY: 3.97
+  drawPanelMaxX: -0.24
+  drawPanelMaxY: 4.24
 --- !u!4 &451046812
 Transform:
   m_ObjectHideFlags: 0

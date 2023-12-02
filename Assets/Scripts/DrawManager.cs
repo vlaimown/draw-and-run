@@ -17,6 +17,11 @@ public class DrawManager : MonoBehaviour
 
     private Vector3 screenPosition;
     private Vector3 worldPosition;
+
+    [SerializeField] private float drawPanelMinX;
+    [SerializeField] private float drawPanelMinY;
+    [SerializeField] private float drawPanelMaxX;
+    [SerializeField] private float drawPanelMaxY;
     void Start()
     {
         camera = Camera.main; 
@@ -30,10 +35,12 @@ public class DrawManager : MonoBehaviour
 
         worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
+        //Debug.Log(worldPosition);
+
         if (Input.GetMouseButtonDown(0) && IsMouseOverUI())
         {
             currentLine = Instantiate(linePrefab, worldPosition, Quaternion.identity);
-            currentLine.transform.SetParent(drawPanel.transform);
+            //currentLine.transform.SetParent(drawPanel.transform);
         }
 
         if (Input.GetMouseButton(0) && IsMouseOverUI())
@@ -52,6 +59,10 @@ public class DrawManager : MonoBehaviour
             {
                 interval = Mathf.Abs(pointCount / heroCount);
             }
+            else
+            {
+                interval = Mathf.Abs(heroCount / pointCount);
+            }
 
             for (int i = 0; i < pointCount; i++)
             {
@@ -60,8 +71,10 @@ public class DrawManager : MonoBehaviour
                     if (i / interval == 0)
                     {
                         Vector3 pointToMove = currentLine.LinePointPos(i);
-                        //pointToMove.x /= drawPanel.transform.localScale.x;
-                        //pointToMove.y /= drawPanel.transform.localScale.y;
+
+                        pointToMove.x = (drawPanelMaxX - pointToMove.x) / (drawPanelMaxX - drawPanelMinX);
+                        pointToMove.y = (drawPanelMaxY - pointToMove.y) / (drawPanelMaxY - drawPanelMinY);
+;
                         pointsToMove.Add(pointToMove);
                     }
                 }
