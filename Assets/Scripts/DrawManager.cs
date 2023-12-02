@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -53,37 +54,23 @@ public class DrawManager : MonoBehaviour
             int pointCount = currentLine.PositionCount();
             int heroCount = player.HeroListCount();
 
-            int interval = 0;
-
-            if (pointCount > heroCount)
-            {
-                interval = Mathf.Abs(pointCount / heroCount);
-            }
-            else
-            {
-                interval = Mathf.Abs(heroCount / pointCount);
-            }
-
             for (int i = 0; i < pointCount; i++)
             {
-                if (interval != 0)
-                {
-                    if (i / interval == 0)
-                    {
-                        Vector3 pointToMove = currentLine.LinePointPos(i);
+                Vector3 pointToMove = currentLine.LinePointPos(i);
 
-                        pointToMove.x = (drawPanelMaxX - pointToMove.x) / (drawPanelMaxX - drawPanelMinX);
-                        pointToMove.y = (drawPanelMaxY - pointToMove.y) / (drawPanelMaxY - drawPanelMinY);
-;
-                        pointsToMove.Add(pointToMove);
-                    }
-                }
+                pointToMove.x = ((drawPanelMaxX - pointToMove.x) / (drawPanelMaxX - drawPanelMinX)) * currentLine.GetDirection();
+                pointToMove.y = (drawPanelMaxY - pointToMove.y) / (drawPanelMaxY - drawPanelMinY);
+                pointToMove.z = 0;
+
+                pointsToMove.Add(pointToMove);
             }
 
-            for (int i = 0; i < pointsToMove.Count; i++)
-            {
-                Debug.Log(pointsToMove[i]);
-            }
+            //for (int i = 0; i < pointsToMove.Count; i++)
+            //{
+            //    Debug.Log(pointsToMove[i]);
+            //}
+
+            player.SetMoveTargets(pointsToMove);
 
             currentLine.SetLifeTime();
         }
